@@ -65,12 +65,11 @@ class ContactManager:
 
     def search_contact(self):
         search_name = input("Enter name to search:")
-        index = 0
         found_contact = list()
+        
         for present_contact in self.contact_holder:
             if present_contact.name == search_name:
                 found_contact.append(present_contact)
-            index += 1
         
         if len(found_contact) == 0:
             print("Contact not found")
