@@ -79,9 +79,6 @@ class ContactManager:
                 one.get_contact()
 
 
-            
-
-
 newContact = ContactManager()
 newContact.add_contact()
 newContact.delete_contact()
