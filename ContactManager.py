@@ -1,30 +1,39 @@
+import csv
+
 class Contact():     
-    def set_name(self):
-        self.name = str(input("Enter name: \n"))
+
+    def __init__(self, name, post_address, gender, email, phone_number):
+        self.name=name
+        self.post_address=post_address
+        self.gender=gender
+        self.email=email
+
+    def set_name(self,name):
+        self.name = name
 
     def get_name(self):
         return self.name
 
-    def set_phone(self):
-        self.phone_number = str(input("Enter phone number: \n"))
+    def set_phone(self, phone_number):
+        self.phone_number = phone_number
         
     def get_phone(self):
         return self.phone_number
 
-    def set_email(self):
-        self.email = str(input("Enter email: \n"))
+    def set_email(self,email):
+        self.email = email
 
     def get_email(self):
         return self.email
 
-    def set_gender(self):
-        self.gender = str(input("Enter gender: \n"))
+    def set_gender(self, gender):
+        self.gender = gender
 
     def get_gender(self):
         return self.gender
 
-    def set_post(self):
-        self.post_address = str(input("Enter Postal Address: \n"))
+    def set_post(self, post_address):
+        self.post_address = post_address
 
     def get_post(self):
         return self.post_address
@@ -40,15 +49,15 @@ class ContactManager:
         self.contact_holder = list()
         
 
-    def add_contact(self):
+    def add_contact(self, name, post_address, gender, email, phone_number):
         print("Adding a New Contact:")
-        tempContact = Contact()
+        tempContact = Contact(name,post_address,gender,email,phone_number)
 
-        tempContact.set_name()
-        tempContact.set_post()
-        tempContact.set_gender()
-        tempContact.set_email()
-        tempContact.set_phone()
+        tempContact.set_name(name)
+        tempContact.set_post(post_address)
+        tempContact.set_gender(gender)
+        tempContact.set_email(email)
+        tempContact.set_phone(phone_number)
         self.contact_holder.append(tempContact)
         print("Contact added\n")
 
@@ -77,9 +86,19 @@ class ContactManager:
             for one in found_contact:
                 one.get_contact()
 
+    def read_csv(self, csv):
+        with open( csv, 'r') as contact_file:
+           contact_file.readline()
+
+           for line in contact_file.readlines():
+                text = line.strip().split(",")
+
+
+
+
 
 newContact = ContactManager()
-newContact.add_contact()
+newContact.add_contact("asd","asd","asd","asd","asd")
 newContact.delete_contact()
 newContact.search_contact()
 
